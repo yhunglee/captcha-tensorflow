@@ -33,7 +33,7 @@ meta.json 的例子
 查看用法说明
 
 ```bash
-$ python gen_captcha.py -h
+$ python3 gen_captcha.py -h
 usage: gen_captcha.py [-h] [-n N] [-t T] [-d] [-l] [-u] [--npi NPI]
 
 optional arguments:
@@ -50,7 +50,7 @@ optional arguments:
 10 组训练数据，另外生成 10% 的测试数据
 
 ```bash
-$ python gen_captcha.py -dl --npi 2 -n 10 -t 0.1
+$ python3 gen_captcha.py -dl --npi 2 -n 10 -t 0.1
 36 choices: 0123456789abcdefghijklmnopqrstuvwxyz
 generating 10 groups of captchas in images/char-2-groups-10/train
 generating 1 groups of captchas in images/char-2-groups-10/test
@@ -75,13 +75,18 @@ $ ls images/char-2-groups-10/test/ | wc -l
 生成测试数据, 1000 组, 纯数字
 
 ```bash
-$ python gen_captcha.py -n 1000 -d
+$ python3 gen_captcha.py -n 1000 -d
 ```
 
 训练
-
+先載入tensorflow到python3環境, 假設你放tensorflow for python3套件在帳號家目錄下的 tensorflow 目錄
 ```bash
-$ time python simple_softmax.py
+$ source ~/tensorflow/bin/activate   
+```
+
+再執行   
+```bash
+(tensorflow)$ time python3 simple_softmax.py
 data loaded
 train images: 10000. test images: 2000
 label_size: 10, image_size: 6000
@@ -118,13 +123,13 @@ tensorboard 解析 log 并做数据可视化。
 
 
 ```bash
-$ python softmax_with_log.py
+(tensorflow)$ python3 softmax_with_log.py
 ```
 
 在另外 1 个 terminal 中执行
 
 ```bash
-$ tensorboard --logdir=log
+(tensorflow)$ tensorboard --logdir=log
 ```
 
 浏览器中打开 `http://127.0.0.1:6006/`
