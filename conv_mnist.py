@@ -55,7 +55,7 @@ def main(_):
     # load data
     mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
     train_data, test_data = mnist.train, mnist.test
-    print 'data loaded. train images: %s. test images: %s' % (train_data.images.shape[0], test_data.images.shape[0])
+    print('data loaded. train images: %s. test images: %s' % (train_data.images.shape[0], test_data.images.shape[0]))
 
     # variable in the graph for input data
     with tf.name_scope('input'):
@@ -138,14 +138,14 @@ def main(_):
                 # Test trained model
                 valid_summary, train_accuracy = sess.run([merged, accuracy], feed_dict={x: batch_xs, y_: batch_ys, keep_prob: 1.0})
                 train_writer.add_summary(valid_summary, i)
-                print 'step %s, training accuracy = %.2f%%' % (i, train_accuracy * 100)
+                print('step %s, training accuracy = %.2f%%' % (i, train_accuracy * 100))
 
         train_writer.close()
 
         # final check after looping
         test_x, test_y = test_data.next_batch(2000)
         test_accuracy = accuracy.eval(feed_dict={x: test_x, y_: test_y, keep_prob: 1.0})
-        print 'testing accuracy = %.2f%%' % (test_accuracy * 100, )
+        print('testing accuracy = %.2f%%' % (test_accuracy * 100, ))
 
 
 if __name__ == '__main__':
