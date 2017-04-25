@@ -78,7 +78,7 @@ $ ls images/char-2-groups-10/test/ | wc -l
 $ python3 gen_captcha.py -n 1000 -d
 ```
 
-训练
+训练   
 先載入tensorflow到python3環境, 假設你放tensorflow for python3套件在帳號家目錄下的 tensorflow 目錄
 ```bash
 $ source ~/tensorflow/bin/activate   
