@@ -35,7 +35,7 @@ def variable_summaries(var):
 def main(_):
     # load data
     train_data, test_data = input_data.load_data_1char(FLAGS.data_dir)
-    print 'data loaded. train images: %s. test images: %s' % (train_data.images.shape[0], test_data.images.shape[0])
+    print('data loaded. train images: %s. test images: %s' % (train_data.images.shape[0], test_data.images.shape[0]))
 
     # variable in the graph for input data
     with tf.name_scope('input'):
@@ -97,14 +97,14 @@ def main(_):
                 # Test trained model
                 test_summary, r = sess.run([merged, accuracy], feed_dict={x: test_data.images, y_: test_data.labels})
                 train_writer.add_summary(test_summary, i)
-                print 'step = %s, accuracy = %.2f%%' % (i, r * 100)
+                print('step = %s, accuracy = %.2f%%' % (i, r * 100))
 
         train_writer.close()
 
         # final check after looping
         test_summary, r_test = sess.run([merged, accuracy], feed_dict={x: test_data.images, y_: test_data.labels})
         train_writer.add_summary(test_summary, i)
-        print 'testing accuracy = %.2f%%' % (r_test * 100, )
+        print('testing accuracy = %.2f%%' % (r_test * 100, ))
 
 
 if __name__ == '__main__':

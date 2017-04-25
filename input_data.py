@@ -86,17 +86,17 @@ def _read_lable(filename, label_choices, **extra_meta):
 
 
 def display_info(meta, train_data, test_data):
-    print '=' * 20
+    print('=' * 20)
     for k, v in meta.items():
-        print '%s: %s' % (k, v)
-    print '=' * 20
+        print('%s: %s' % (k, v))
+    print('=' * 20)
 
-    print 'train images: %s, labels: %s' % (train_data.images.shape, train_data.labels.shape)
+    print('train images: %s, labels: %s' % (train_data.images.shape, train_data.labels.shape))
 
-    print 'test images: %s, labels: %s' % (test_data.images.shape, test_data.labels.shape)
+    print('test images: %s, labels: %s' % (test_data.images.shape, test_data.labels.shape))
 
     batch_xs, batch_ys = train_data.next_batch(100)
-    print 'batch images: %s, labels: %s' % (batch_xs.shape, batch_ys.shape)
+    print('batch images: %s, labels: %s' % (batch_xs.shape, batch_ys.shape))
 
 
 if __name__ == '__main__':
